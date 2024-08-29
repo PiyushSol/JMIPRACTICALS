@@ -39,6 +39,7 @@ public class MatrixOperations {
         }
     }
 
+    //Code to perform product of two matrices
     private static void multiplyMatrices(int m1[][], int m2[][], int res[][]) {
         for (int i = 0; i < m1.length; i++) {
             for (int j = 0; j < m1[i].length; j++) {
