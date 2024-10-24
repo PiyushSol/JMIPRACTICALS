@@ -1,0 +1,16 @@
+SET SERVEROUTPUT ON;
+
+DECLARE
+    FACT INTEGER :=1;
+    NUM  INTEGER;
+    J    INTEGER;
+BEGIN
+    NUM := &NUM;
+    FOR J IN 1..NUM LOOP
+        FACT := FACT * J;
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('THE FACTORIAL OF THE ENTERED NUMBER IS '
+                         ||FACT);
+END;
+/
