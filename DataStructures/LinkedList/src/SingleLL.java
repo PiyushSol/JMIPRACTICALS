@@ -1,15 +1,44 @@
+/**
+ * Author: Piyush Solanki
+ * Semester: 2
+ * Subject: Advanced Data Structures
+ *
+ * This program implements a Singly Linked List data structure and provides the following operations:
+ * 1. Insert at head
+ * 2. Insert at tail
+ * 3. Insert at a specific index
+ * 4. Search for a given value's index
+ * 5. Delete at tail
+ * 6. Delete at head
+ * 7. Delete at a specific index
+ * 8. Print the list
+ *
+ * The Singly Linked List allows efficient insertion and deletion at various positions
+ * and supports searching and printing operations.
+ */
+
 public class SingleLL {
     private Node head;
     private int size;
 
-    public SingleLL(){
-        this.head =null;
-        size=0;
+    class Node {
+        int data;
+        Node next;
+
+        Node(int data){
+            this.data = data;
+            this.next =null;
+        }
     }
+
 
     //Function to insert a Node at head of the Linked List.
     public void insertAtHead(int data){
         Node node = new Node(data);
+        if(head == null) {
+            head = node;
+            return;
+        }
         node.next =head;
         head=node;
         size++;
@@ -35,10 +64,8 @@ public class SingleLL {
     public void insertAtIndex(int index,int val){
         //First we check if index is within the size of linked list
         if(index<0 || index>size){
+            System.out.println("Invalid index passed.");
             return;
-        }
-        if(index<0){
-            index=0;
         }
         Node node= new Node(val);
         if(isEmpty()){
@@ -46,9 +73,12 @@ public class SingleLL {
             size++;
             return;
         }
-
+        if(index == 0){
+            insertAtHead(val);
+            return;
+        }
         Node temp = head;
-        for(int i=0;i<index;i++){
+        for(int i=0;i<index-1;i++){
             temp = temp.next;
         }
         if(size == index){
@@ -102,6 +132,29 @@ public class SingleLL {
             temp=temp.next;
         }
         return temp==null?-1: temp.data;
+    }
+
+    //Function to delete at a given index
+    public void deleteAtIndex(int index){
+        int i=0;
+        Node temp =head;
+        if(index<0 || index>size){
+            System.out.println("Deletion not possible . Invalid index passed.");
+            return;
+        }
+        if(index == 0){
+            deleteHead();
+            return;
+        }
+        if(index ==size){
+            deleteTail();
+            return;
+        }
+        while(i<index-1){
+            temp = temp.next;
+            i++;
+        }
+        temp.next = temp.next.next;
     }
 
     //Function to print Linked List

@@ -1,18 +1,12 @@
 public class TestLL {
     public static void main(String[] args) {
-        SingleLL list = new SingleLL();
-        list.insertAtHead(1);
-        list.insertAtTail(2);
-        list.insertAtTail(3);
-        list.insertAtTail(4);
-        list.printList();
-        list.deleteTail();
-        list.deleteTail();
-        list.deleteTail();
-        list.deleteTail();
-        list.deleteTail();
-        list.printList();
-
-
+        SingleLL ll = new SingleLL();
+        ll.insertAtHead(1);
+        ll.insertAtTail(2);
+        ll.insertAtTail(3);
+        ll.insertAtTail(4);
+        ll.insertAtTail(5);
+        ll.printList();
     }
+
 }
