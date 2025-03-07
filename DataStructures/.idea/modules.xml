@@ -4,6 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DataStructures.iml" filepath="$PROJECT_DIR$/.idea/DataStructures.iml" />
       <module fileurl="file://$PROJECT_DIR$/LinkedList/LinkedList.iml" filepath="$PROJECT_DIR$/LinkedList/LinkedList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Matrix/Matrix.iml" filepath="$PROJECT_DIR$/Matrix/Matrix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Queues/Queues.iml" filepath="$PROJECT_DIR$/Queues/Queues.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Stacks/Stacks.iml" filepath="$PROJECT_DIR$/Stacks/Stacks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Stacks/UsingArrayList/UsingArrayList.iml" filepath="$PROJECT_DIR$/Stacks/UsingArrayList/UsingArrayList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Stacks/UsingArrays/UsingArrays.iml" filepath="$PROJECT_DIR$/Stacks/UsingArrays/UsingArrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Stacks/UsingLinkedList/UsingLinkedList.iml" filepath="$PROJECT_DIR$/Stacks/UsingLinkedList/UsingLinkedList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Queues/Using_Arrays/Using_Arrays.iml" filepath="$PROJECT_DIR$/Queues/Using_Arrays/Using_Arrays.iml" />
     </modules>
   </component>
 </project>
