@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/Stacks/UsingArrays/UsingArrays.iml" filepath="$PROJECT_DIR$/Stacks/UsingArrays/UsingArrays.iml" />
       <module fileurl="file://$PROJECT_DIR$/Stacks/UsingLinkedList/UsingLinkedList.iml" filepath="$PROJECT_DIR$/Stacks/UsingLinkedList/UsingLinkedList.iml" />
       <module fileurl="file://$PROJECT_DIR$/Queues/Using_Arrays/Using_Arrays.iml" filepath="$PROJECT_DIR$/Queues/Using_Arrays/Using_Arrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Queues/Using_LinkedList/Using_LinkedList.iml" filepath="$PROJECT_DIR$/Queues/Using_LinkedList/Using_LinkedList.iml" />
     </modules>
   </component>
 </project>
