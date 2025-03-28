@@ -1,4 +1,3 @@
-package UsingArrays;
 import java.util.Scanner;
 
 public class Main {
@@ -21,7 +20,8 @@ public class Main {
             System.out.println("2. Pop Element");
             System.out.println("3. Peek Element");
             System.out.println("4. Evaluate Postfix Expression");
-            System.out.println("5. Exit");
+            System.out.println("5. Convert Infix to Postfix Expression");
+            System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
 
@@ -51,9 +51,8 @@ public class Main {
                     }
                     break;
                 case 4:
-                 
                     System.out.println("Enter your postfix expression : ");
-                    sc.nextLine(); 
+                    sc.nextLine();
                     String exp = sc.nextLine();
 
                     if (exp.trim().isEmpty()) {
@@ -64,6 +63,18 @@ public class Main {
                     }
                     break;
                 case 5:
+                    System.out.println("Enter your Infix expression : ");
+                    sc.nextLine();
+                    String expr = sc.nextLine();
+
+                    if (expr.trim().isEmpty()) {
+                        System.out.println("Invalid input: empty postfix expression.");
+                    } else {
+                        String res = s.infixToPostfix(expr);
+                        System.out.println("The evaluation is: " + res);
+                    }
+                    break;
+                case 6:
                     System.out.println("Exiting......");
                     sc.close();
                     System.exit(0);
