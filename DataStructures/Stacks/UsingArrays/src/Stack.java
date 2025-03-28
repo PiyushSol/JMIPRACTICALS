@@ -7,6 +7,8 @@
  * 1. Push
  * 2. Pop
  * 3. Peek
+ * 4.Evaluate Postifix Expression
+ * 5.Convert Infix to Postfix Expression
  */
 
 public class Stack {
@@ -99,6 +101,91 @@ public class Stack {
     public  boolean isEmpty(){
         return top == -1;
     }
+
+    //Evaulation of Postfix Expression
+    public int evaluate(String expression) {
+        int res = -1;
+        int num1 = 0, num2 = 0;
+        Stack s = new Stack(50);
+        String[] exp = expression.split("\\s+");
+
+        for (int i = 0; i < exp.length; i++) {
+            exp[i] = exp[i].trim();
+
+            if (!isOperator(exp[i])) {
+                if (!exp[i].isEmpty()) {
+                    try {
+                        s.push(Integer.parseInt(exp[i]));
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid number format: " + exp[i]);
+                        return -1;
+                    } catch (StackFullException e) {
+                        e.printStackTrace();
+                        return -1;
+                    }
+                } else {
+                    System.out.println("Invalid input: empty string found in the expression.");
+                    return -1;
+                }
+            } else {
+
+                try {
+                    num2 = s.pop();
+                    num1 = s.pop();
+                } catch (StackEmptyException e) {
+                    e.printStackTrace();
+                    return -1;
+                }
+                switch (exp[i]) {
+                    case "^":
+                        res = (int) Math.pow(num1, num2);  // Power operation
+                        break;
+                    case "/":
+                        if (num2 == 0) {
+                            System.out.println("Error: Division by zero.");
+                            return -1;
+                        }
+                        res = num1 / num2;  // Division
+                        break;
+                    case "*":
+                        res = num1 * num2;  // Multiplication
+                        break;
+                    case "+":
+                        res = num1 + num2;  // Addition
+                        break;
+                    case "-":
+                        res = num1 - num2;  // Subtraction
+                        break;
+                    default:
+                        System.out.println("Illegal symbol: " + exp[i]);
+                        return -1;
+                }
+
+
+                try {
+                    s.push(res);
+                } catch (StackFullException e) {
+                    e.printStackTrace();
+                    return -1;
+                }
+            }
+        }
+
+        try {
+            res = s.pop();
+        } catch (StackEmptyException e) {
+            e.printStackTrace();
+            return -1;
+        }
+
+        if (!s.isEmpty()) {
+            System.out.println("Error: Stack is not empty after evaluation.");
+            return -1;
+        }
+
+        return res;
+    }
+
 
     //Helper function to get precedence of Operator
     public int getPrecedence(String ch) {
