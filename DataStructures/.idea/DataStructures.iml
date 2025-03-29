@@ -5,6 +5,8 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/BinaryTrees/UsingArrays" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BinaryTrees/UsingNode" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Heaps/MaxHeaps" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Heaps/MinHeaps" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
