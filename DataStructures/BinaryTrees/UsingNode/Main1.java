@@ -40,7 +40,8 @@ public class Main1 {
                     System.out.println("The size of tree is : "+size);
                     break;
                 case 7:System.out.println("Enter the key to be searched : ");
-                    int key = sc.next().charAt(0);
+                    String key = sc.nextLine();
+                    sc.nextLine();
                     BinaryTree.Node node = b.Search(b.getRoot(),key);
                     System.out.println("The key is at location : "+node);
                     break;

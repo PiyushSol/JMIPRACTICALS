@@ -43,7 +43,8 @@ public class Main {
                         System.out.println("The size of tree is : "+size);
                         break;
                 case 7:System.out.println("Enter the key to be searched : ");
-                       char key = sc.next().charAt(0);
+                        sc.nextLine();
+                       String key = sc.nextLine();
                        int idx = b.search(key);
                        System.out.println("The key is at location : "+idx);
                        break;

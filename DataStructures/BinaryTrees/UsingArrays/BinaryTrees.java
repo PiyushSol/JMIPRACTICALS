@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class BinaryTrees {
     int h ;
-    char BT[];
+    String BT[];
 
     BinaryTrees(int h){
         this.h= h;
-        BT = new char[(int)((Math.pow(2,h))-1)];
+        BT = new String[(int)((Math.pow(2,h))-1)];
         for(int i=0;i<(int)((Math.pow(2,h))-1);i++){
-            BT[i]='\0';
+            BT[i]="\0";
         }
     }
 
@@ -26,7 +26,7 @@ public class BinaryTrees {
         else{
             System.out.println("Enter the right child of "+BT[(int)Math.floor((rootIndex-1)/2)]+" : ");
         }
-        BT[rootIndex] = sc.next().charAt(0);
+        BT[rootIndex] = sc.nextLine();
         System.out.println("Does the "+BT[rootIndex]+ " have left child ? (Y/y) ");
         char ch = sc.next().charAt(0);
         if((ch == 'Y'||ch == 'y') && 2*(rootIndex+1)-1 <(int)((Math.pow(2,h))-1)){
@@ -41,46 +41,46 @@ public class BinaryTrees {
 
     //Preorder Traversing
     public void preOrder(int root){
-        if(BT[root]!='\0') {
+        if(!BT[root].equals("\0")) {
             System.out.print(BT[root] + " ");
         }
-        if(2*(root+1)-1 <(int)((Math.pow(2,h))-1) && BT[2*(root+1)-1]!='\0'){
+        if(2*(root+1)-1 <(int)((Math.pow(2,h))-1) && !BT[2*(root+1)-1].equals("\0")){
             preOrder(2*(root+1)-1);
         }
-        if(2*(root+1)<(int)((Math.pow(2,h))-1) && BT[2*(root+1)]!='\0'){
+        if(2*(root+1)<(int)((Math.pow(2,h))-1) && !BT[2*(root+1)].equals("\0")){
             preOrder(2*(root+1));
         }
     }
 
     //Inorder Traversing
     public void inOrder(int root){
-        if(2*(root+1)-1 <(int)((Math.pow(2,h))-1) && BT[2*(root+1)-1]!='\0'){
+        if(2*(root+1)-1 <(int)((Math.pow(2,h))-1) && !BT[2*(root+1)-1].equals("\0")){
             inOrder(2*(root+1)-1);
         }
-        if(BT[root]!='\0') {
+        if(!BT[root].equals("\0")) {
             System.out.print(BT[root] + " ");
         }
-        if(2*(root+1)<(int)((Math.pow(2,h))-1) && BT[2*(root+1)]!='\0'){
+        if(2*(root+1)<(int)((Math.pow(2,h))-1) && !BT[2*(root+1)].equals("\0")){
             inOrder(2*(root+1));
         }
     }
 
     //PostOrderTraversing
     public void postOrder(int root){
-        if(2*(root+1)-1 <(int)((Math.pow(2,h))-1) && BT[2*(root+1)-1]!='\0'){
+        if(2*(root+1)-1 <(int)((Math.pow(2,h))-1) && !BT[2*(root+1)-1].equals("\0")){
             postOrder(2*(root+1)-1);
         }
-        if(2*(root+1)<(int)((Math.pow(2,h))-1) && BT[2*(root+1)]!='\0'){
+        if(2*(root+1)<(int)((Math.pow(2,h))-1) && !BT[2*(root+1)].equals("\0")){
             postOrder(2*(root+1));
         }
-        if(BT[root]!='\0') {
+        if(!BT[root].equals("\0")) {
             System.out.print(BT[root] + " ");
         }
     }
 
     //LevelOrder Traversing using inbuild Queue
     public void levelOrder(int root){
-        if(BT[0]=='\0'){
+        if(BT[0].equals("\0")){
             return;
         }
         Queue<Integer> q = new LinkedList<>();
@@ -88,10 +88,10 @@ public class BinaryTrees {
         while(q.isEmpty()==false){
             int i=q.remove();
             System.out.print(BT[i]+" ");
-            if(2*(i+1)-1 <(int)((Math.pow(2,h))-1) && BT[2*(i+1)-1]!='\0'){
+            if(2*(i+1)-1 <(int)((Math.pow(2,h))-1) && !BT[2*(i+1)-1].equals("\0")){
                 q.add(2*(i+1)-1);
             }
-            if(2*(i+1)<(int)((Math.pow(2,h))-1) && BT[2*(i+1)]!='\0'){
+            if(2*(i+1)<(int)((Math.pow(2,h))-1) && !BT[2*(i+1)].equals("\0")){
                 q.add(2*(i+1));
             }
         }
@@ -99,7 +99,7 @@ public class BinaryTrees {
 
     //isEmpty
     public boolean isEmpty(){
-        if(BT[0]=='\0'){
+        if(BT[0].equals("\0")){
             return true;
         }
         else{
@@ -111,7 +111,7 @@ public class BinaryTrees {
     public int size(){
         int sz=0;
         for(int i=0;i<(int)((Math.pow(2,h))-1);i++){
-            if(BT[i]!='\0'){
+            if(!BT[i].equals("\0")){
                 sz++;
             }
         }
@@ -124,9 +124,9 @@ public class BinaryTrees {
     }
 
     //Search
-    public int search(char key){
+    public int search(String key){
         for(int i=0;i<(int)((Math.pow(2,h))-1);i++){
-            if(BT[i]== key){
+            if(BT[i].equals(key)){
                 return i;
             }
         }

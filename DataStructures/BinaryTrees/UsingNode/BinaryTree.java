@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class BinaryTree {
     //Class Node
     class Node{
-        int data;
+        String data;
         Node left , right;
         Node(){
             this.left = this.right=null;
@@ -30,7 +30,7 @@ public class BinaryTree {
         else{
             System.out.println("Enter right child of "+p.data+" : ");
         }
-        r.data = sc.nextInt();
+        r.data = sc.nextLine();
         System.out.println("Does "+r.data+" have left child?(Y/y) ");
         char ch = sc.next().charAt(0);
         if((ch =='Y'||ch=='y')){
@@ -142,11 +142,11 @@ public class BinaryTree {
     }
 
     //Search
-    public Node Search(Node r , int key){
+    public Node Search(Node r , String key){
         if(r == null){
             return null;
         }
-        if(r.data == key){
+        if(r.data.equals(key)){
             return r;
         }
         else{
