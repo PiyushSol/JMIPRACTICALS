@@ -1,3 +1,22 @@
+/**
+ * Author: Piyush Solanki
+ * Semester: 2
+ * Subject: Advanced Data Structures
+ *
+ * This program implements a Binary Tree-Using Node data structure and provides the following operations:
+ * 1. Build Binary Tree
+ * 2. Preorder Traversal
+ * 3. Inorder Traversal
+ * 4. PostOrder Traversal
+ * 5. Level Order Traversal
+ * 6. Size
+ * 7. Search
+ * 8. Empty
+ * 9. Height
+ * 10.Exit
+ *
+ */
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -16,6 +35,8 @@ public class BinaryTree {
     BinaryTree(){
         root = null;
     }
+
+
 
     //Building binary tree
     public void build(Node r , Node p){

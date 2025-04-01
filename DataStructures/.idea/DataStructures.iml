@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/BinaryTrees/UsingNode" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Heaps/MaxHeaps" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Heaps/MinHeaps" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BST" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

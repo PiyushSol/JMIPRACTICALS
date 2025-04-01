@@ -1,47 +1,86 @@
+/**
+ * Author: Piyush Solanki
+ * Semester: 2
+ * Subject: Advanced Data Structures
+ *
+ * This program implements a MaxHeap data structure and provides the following operations:
+ * 1. Insert
+ * 2. Adjust or Heapify
+ * 3. Delete
+ * 4. Print
+ * 5. GetSize
+ *
+ */
 public class MaxHeap {
-    //Insert into maxheap
-    public void insert(int maxheap[],int n , int x){
-        int i=n-1;
-        while((i>0) && maxheap[(int)(Math.floor((i-1)/2))]<x){
-            maxheap[i]=maxheap[(int)(Math.floor((i-1)/2))];
-            i = (int)(Math.floor((i-1)/2));
+    private int size = 0; // Tracks the number of elements
+
+    // Insert into max heap
+    public void insert(int maxheap[], int capacity, int x) {
+        if (size == capacity) {
+            System.out.println("Heap is full!");
+            return;
         }
-        maxheap[i]=x;
+
+        int i = size;  // Insert at last position
+        while (i > 0 && maxheap[(i - 1) / 2] < x) {
+            maxheap[i] = maxheap[(i - 1) / 2];
+            i = (i - 1) / 2;
+        }
+        maxheap[i] = x;
+        size++;
     }
 
-    //Adjust function to adjust the maxheap
-    public void adjust(int maxheap[],int i , int n){
-        int j = 2*(i+1)-1;
-        int x = maxheap[i];
-        while(j<=n-1){
-            if((j<n-1) &&(maxheap[j]<maxheap[j+1])){
-                j=j+1;
-            }
-            if(x>=maxheap[j]){
-                break;
-            }
-            maxheap[(int)(Math.floor((j-1)/2))]=maxheap[j];
-            j=2*(j+1)-1;
-        }
-        maxheap[(int)(Math.floor((j-1)/2))]=x;
-    }
+    // Adjust function (Heapify Down)
+    public void adjust(int maxheap[], int i, int size) {
+        int largest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
 
-    //Delete the maxheap
-    public int delete(int maxheap[],int n ,int x){
-        if(n==0){
-            System.out.println("Heap Tree is empty!");
-        }
-        x = maxheap[0];
-        maxheap[0] = maxheap[n-1];
-        adjust(maxheap,0,n);
-        return x;
-    }
+        if (left < size && maxheap[left] > maxheap[largest])
+            largest = left;
 
-    //Function to build heap tree
-    public void heapify(int maxheap[],int n){
-        for(int i=(int)(Math.floor((n-2)/2)) ; i>=0;i--){
-            adjust(maxheap,i,n);
+        if (right < size && maxheap[right] > maxheap[largest])
+            largest = right;
+
+        if (largest != i) {
+            int temp = maxheap[i];
+            maxheap[i] = maxheap[largest];
+            maxheap[largest] = temp;
+            adjust(maxheap, largest, size);
         }
     }
 
+    // Delete root from max heap
+    public int delete(int maxheap[]) {
+        if (size == 0) {
+            System.out.println("Heap is empty!");
+            return -1;
+        }
+
+        int maxValue = maxheap[0];
+        maxheap[0] = maxheap[size - 1]; // Replace root with last element
+        size--;
+        adjust(maxheap, 0, size); // Restore heap property
+
+        return maxValue;
+    }
+
+    // Build max heap from array
+    public void heapify(int maxheap[], int n) {
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            adjust(maxheap, i, n);
+        }
+    }
+
+    // Print heap
+    public void printHeap(int maxheap[]) {
+        for (int i = 0; i < size; i++) {
+            System.out.print(maxheap[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public int getSize() {
+        return size;
+    }
 }
