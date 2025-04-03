@@ -2,13 +2,19 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String args[]){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("------Queue with Arrays-------");
-        System.out.print("Enter the size of your queue : ");
-        int n= sc.nextInt();
-        Queue q  = new Queue(n);
-        menu(q);
-        sc.close();
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("------Queue with Arrays-------");
+//        System.out.print("Enter the size of your queue : ");
+//        int n= sc.nextInt();
+//        Queue q  = new Queue(n);
+//        menu(q);
+//        sc.close();
+          Queue q = new Queue(5);
+          int []inputorder ={5,4,3,2,1};
+          int n=inputorder.length;
+          int k=3;
+          boolean result = q.railRoad(inputorder,n,k);
+          System.out.println("reording possible : "+result );
     }
 
     public static void menu(Queue q){

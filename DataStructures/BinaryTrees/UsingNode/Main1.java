@@ -40,10 +40,10 @@ public class Main1 {
                     System.out.println("The size of tree is : "+size);
                     break;
                 case 7:System.out.println("Enter the key to be searched : ");
-                    String key = sc.nextLine();
                     sc.nextLine();
+                    String key = sc.nextLine();
                     BinaryTree.Node node = b.Search(b.getRoot(),key);
-                    System.out.println("The key is at location : "+node);
+                    System.out.println("The key is at location : "+node.toString());
                     break;
                 case 8:System.out.println(b.isEmpty());
                     break;

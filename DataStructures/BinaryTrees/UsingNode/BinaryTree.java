@@ -43,7 +43,7 @@ public class BinaryTree {
         Scanner sc = new Scanner(System.in);
         if(r == null && p==null){
             System.out.println("Enter Root Data : ");
-            r=root = new Node();
+            root=r= new Node();
         }
         else if(r==p.left){
             System.out.println("Enter left child of "+p.data+" : ");
@@ -181,6 +181,7 @@ public class BinaryTree {
             }
         }
     }
+
 
 
 }
