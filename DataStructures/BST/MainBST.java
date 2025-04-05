@@ -40,7 +40,8 @@ public class MainBST {
                 case 6:
                     System.out.print("Enter the key to search: ");
                     String key = sc.next();
-                    System.out.println(b.search(key) ? "Key exists." : "Key not found.");
+                    BST.Node node = b.search(key);
+                    System.out.println("The key is found at : "+node);
                     break;
                 case 7:System.out.println(b.isEmpty());
                     break;

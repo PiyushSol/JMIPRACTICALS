@@ -67,13 +67,25 @@ public class BST {
       }
 
         //Searching Operation
-        public boolean search(String key) {
+        public Node search(String key) {
             Node r = root;
-            while (r != null) {
-                if (key.equals(r.data)) return true;
-                r = (key.compareTo(r.data) < 0) ? r.left : r.right;
+            boolean flag =false;
+            while (r != null && flag ==false) {
+                if (key.equals(r.data)) {
+                    return r;
+                }
+               else if(key.compareTo(r.data)<0){
+                    r=r.left;
+                }
+                else if(key.compareTo(r.data)>0){
+                    r=r.right;
+                }
+
             }
-            return false;
+            if(flag == true){
+                return r;
+            }
+            return null;
         }
 
       //Insertion Operation

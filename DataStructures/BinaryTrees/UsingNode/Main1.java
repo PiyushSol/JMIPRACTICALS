@@ -43,7 +43,12 @@ public class Main1 {
                     sc.nextLine();
                     String key = sc.nextLine();
                     BinaryTree.Node node = b.Search(b.getRoot(),key);
-                    System.out.println("The key is at location : "+node.toString());
+                    if(node == null){
+                        System.out.println("The key is not present.");
+                    }
+                    else {
+                        System.out.println("The key is at location : " + node);
+                    }
                     break;
                 case 8:System.out.println(b.isEmpty());
                     break;
