@@ -5,13 +5,6 @@
   <i>By Piyush Solanki • MCA Student</i>
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/github/languages/count/your-username/your-repo-name?color=blue" />
-  <img src="https://img.shields.io/github/languages/top/your-username/your-repo-name" />
-  <img src="https://img.shields.io/github/last-commit/your-username/your-repo-name" />
-  <img src="https://img.shields.io/badge/Contributions-Welcome-brightgreen" />
-</p>
-
 ---
 
 ## 📑 Table of Contents
@@ -56,5 +49,6 @@ Feel free to fork, star ⭐, and open a pull request!
 # Clone the repository
 git clone https://github.com/PiyushSol/JMIPRACTICALS.git
 
+---
 🌟 GitHub Stats
 <p align="center"> <img src="https://github-readme-stats.vercel.app/api?username=PiyushSol&show_icons=true&theme=radical" width="47%" /> <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=PiyushSole&layout=compact&theme=radical" width="47%" /> </p>
