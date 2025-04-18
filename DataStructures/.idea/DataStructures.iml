@@ -9,6 +9,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Heaps/MinHeaps" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BST" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Sorting" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Hashing" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
