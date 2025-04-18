@@ -48,7 +48,7 @@ Feel free to fork, star ⭐, and open a pull request!
 ```bash
 # Clone the repository
 git clone https://github.com/PiyushSol/JMIPRACTICALS.git
-
+```
 ---
 🌟 GitHub Stats
 <p align="center"> <img src="https://github-readme-stats.vercel.app/api?username=PiyushSol&show_icons=true&theme=radical" width="47%" /> <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=PiyushSole&layout=compact&theme=radical" width="47%" /> </p>
