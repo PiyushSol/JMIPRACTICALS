@@ -1,7 +1,7 @@
 public class ChainMatrix {
     public static void main(String[] args){
-        int n =2;
-        int[] d = {2,3,4};
+        int n =3;
+        int[] d = {10,20,5,30};
         int[][] P = new int[n+1][n+1];
         minMul(d,P,n);
         printOrder(1,n,P,n);
@@ -18,7 +18,7 @@ public class ChainMatrix {
                 int j = i+diagonal;
                 M[i][j] = M[i][j]+M[i+1][j]+d[i-1]*d[i]*d[j];
                 P[i][j]=i;
-                for(int k=i+1;k<j-1;k++){
+                for(int k=i+1;k<=j-1;k++){
                     if((M[i][k]+M[k+1][j]+d[i-1]*d[k]*d[j])<M[i][j]){
                         M[i][j]=M[i][k]+M[k+1][j]+d[i-1]*d[k]*d[j];
                         P[i][j]=k;
