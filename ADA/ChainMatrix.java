@@ -29,7 +29,7 @@ public class ChainMatrix {
                 M[i][j-i] =M[i][k-i]+M[k+1][j-(k+1)]+d[i]*d[k+1]*d[j+1];
                 P[i][j-i-1]=k;
                 for (k = i + 1; k <= j - 1; k++) {
-                    if ((M[i][k-i] + M[k + 1][j-(k+1)] + d[i] * d[k+1] * d[j+1]) < M[i][j-1]) {
+                    if ((M[i][k-i] + M[k + 1][j-(k+1)] + d[i] * d[k+1] * d[j+1]) < M[i][j-i]) {
                         M[i][j-i] = M[i][k-i] + M[k + 1][j-(k+1)] + d[i] * d[k+1] * d[j+1];
                         P[i][j-i-1] = k;
                     }
@@ -104,3 +104,4 @@ public class ChainMatrix {
         }
     }
 }
+
