@@ -75,6 +75,33 @@ public class Sorting {
         }
     }
 
+
+    //Iterative version
+    public void adjustIterative(int heap[], int i, int size) {
+    int largest = i;
+    int temp = heap[i];  
+
+    while (true) {
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+
+        if (left < size && heap[left] > temp)
+            largest = left;
+        else
+            largest = i;
+
+        if (right < size && heap[right] > heap[largest])
+            largest = right;
+
+        if (largest == i)
+            break;
+
+        heap[i] = heap[largest];
+        i = largest;  
+    }
+    heap[i] = temp;
+}
+
     // Adjust function (Heapify Down)
     public void adjust(int heap[], int i, int size) {
         int largest = i;
