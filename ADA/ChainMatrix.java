@@ -51,6 +51,7 @@ public class ChainMatrix {
             }
             System.out.println();
         }
+        opitimisedprintOrder(0, n-1, P, n);
     }
 
     public static void minMul(int []d, int n){
@@ -91,17 +92,30 @@ public class ChainMatrix {
         printOrder(0, n-1, P, n);
     }
 
-    public static void printOrder(int i, int j, int[][]p,int n){
-        if(i==j){
-            System.out.print("A"+j);
-        }
-        else{
+    public static void printOrder(int i, int j, int[][] p, int n) {
+        if (i == j) {
+            System.out.print("A" + j);
+        } else {
             int k = p[i][j];
             System.out.print("(");
-            printOrder(i,k,p,n);
-            printOrder(k+1,j,p,n);
+            printOrder(i, k, p, n);
+            printOrder(k + 1, j, p, n);
+            System.out.print(")");
+        }
+    }
+
+      public static void opitimisedprintOrder(int i, int j, int[][]p,int n){
+        if(i==j){
+            System.out.print("A"+(i));
+        }
+        else{
+            int k = p[i][j-i-1];
+            System.out.print("(");
+            opitimisedprintOrder(i,k,p,n);
+            opitimisedprintOrder(k+1,j,p,n);
             System.out.print(")");
         }
     }
 }
+
 
