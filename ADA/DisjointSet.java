@@ -1,47 +1,36 @@
 public class DisjointSet {
-    int U[];
-    int n;
+    static int n;
+    static int []U;
 
-    DisjointSet(int n) {
-        this.n = n;
+    DisjointSet(int n){
+        this.n =n;
         U = new int[n];
-    }
-
-    public void makeSet() {
-        for (int i = 0; i < n; i++) {
-            U[i] = -1;
+        for(int i=0;i<n;i++){
+            U[i]=i;
         }
     }
 
-    public int find(int i) {
-        int j = i;
-        while (U[j] > 0) {
-            j = U[j];
+    public static void merge(int p , int q){
+        int rootP = find(p);
+        int rootQ = find(q);
+        if (rootP != rootQ) {
+            U[rootQ] = rootP;
         }
-        return j;
     }
 
-    public void merge(int u, int v) {
-        int rootu = find(u);
-        int rootv = find(v);
-        if (rootu == rootv) {
-            return;
+    public static int find(int i){
+        if (U[i] != i) {
+            U[i] = find(U[i]);  // Path compression
         }
+        return U[i];
+    }
 
-        if (U[rootu] < U[rootv]) {
-            U[rootu] += U[rootv];
-            U[rootv] = rootu;
-        } else {
-            U[rootv] += U[rootu];
-            U[rootu] = rootv;
-        }
+    public static boolean equal(int p, int q){
+    return find(p)==find(q);
+
     }
-    
-    public boolean equal(int u, int v) {
-        return find(u) == find(v);
-    }
-    
+
     public static void main(String[] args) {
-        
+
     }
 }
