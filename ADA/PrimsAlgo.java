@@ -13,36 +13,42 @@ public class PrimsAlgo {
     }
     
     public static void prime(int w[][], int n) {
-        int nearest[] = new int[n];
-        int distance[] = new int[n];
+        int nearest[] = new int[n-1];
+        int distance[] = new int[n-1];
         List<List<Integer>> edges = new ArrayList<>();
-        for (int i = 1; i <n; i++) {
+        for (int i = 0; i <=n-2; i++) {
             nearest[i] = 0;
-            distance[i] = w[0][i];
+            distance[i] = w[0][i+1];
         }
         int k = 1;
         while (k < n) {
             int min = Integer.MAX_VALUE;
             int near = -1;
-            for (int i = 1; i <n; i++) {
+            for (int i = 0; i <n-1; i++) {
                 if (0 <= distance[i] && distance[i] < min) {
                     min = distance[i];
                     near = i;
                 }
             }
-            edges.add(Arrays.asList(nearest[near], near));
+            edges.add(Arrays.asList(nearest[near], near+1));
             distance[near] = -1;
-            for (int i = 1; i <n; i++) {
-                if (w[i][near] < distance[i]) {
-                    distance[i] = w[i][near];
-                    nearest[i] = near;
+            for (int i = 0; i < n - 1; i++) {
+                if (distance[i] == -1)
+                    continue;
+                if (w[i+1][near+1] < distance[i]) {
+                    distance[i] = w[i+1][near+1];
+                    nearest[i] = near+1;
                 }
             }
-            k++;
+          
+            System.out.println("Iteration -> "+k);
+             System.out.println("Distance Array-> Iteration  "+  Arrays.toString(distance));
+            System.out.println("Nearest Array-> Iteration  "+Arrays.toString(nearest));
+            System.out.println("List of Edges -> Iteration  " + edges);
+            System.out.println("-".repeat(20));
+              k++;
         }
 
-        System.out.println("Distance Array-> " + Arrays.toString(distance));
-        System.out.println("Nearest Array-> "+Arrays.toString(nearest));
-        System.out.println("List of Edges -> "+edges);
+       
     }
 }
