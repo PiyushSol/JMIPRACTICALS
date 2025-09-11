@@ -115,11 +115,14 @@ public class PrintAllMSTrees {
         System.out.print(E[E.length - 1] + "]\n");
     }
     
-    public static void printALLMST( int minLen, int k, int kk, DisjointSet s, Edge[] E, int n, int m, Edge[] F ){
+    public static void printALLMST(int minLen, int k, int kk, DisjointSet s, Edge[] E, int n, int m, Edge[] F) {
+        System.out.println("K =" + k + " kk = " + kk + " s.u= " + s);
+        if(k==n-1)print(F);
         if((k==n-1) && getWeight(F)==minLen){
          print(F);
          return;
      }
+
         boolean flag = true;
 
         while (flag) {
@@ -154,6 +157,33 @@ public class PrintAllMSTrees {
     }
 
     public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+        System.out.print("How many vertices? ");
+        int n = in.nextInt();
+        System.out.print("How many edges? ");
+        int m = in.nextInt();
+        Edge E[] = new Edge[m];
+        for (int i = 0; i < E.length; i++)
+            E[i] = new Edge();
+        read(E);
+        print(E);
+        int minLen= kruskal(E, n);
+      DisjointSet s = new DisjointSet(n);
+        Edge F[] = new Edge[n - 1]; 
+        System.out.println("Total weight of Minimum Spanning Tree = " + minLen);
+        Edge e = E[0];
+        int kk = 0;
+        while (e.w == E[kk].w) {
+            DisjointSet ss = new DisjointSet(s);
+            F[0] = E[kk];
+            int p = E[kk].s;
+            int q = E[kk].d;
+             int r = ss.find(p);
+             int t = ss.find(q);
+            ss.merge(r, t);
+            printALLMST(minLen, 0, kk, s, E, n, m, F);
+            kk++;
+        }
 
     }
 }
