@@ -109,25 +109,25 @@ public class PrintAllMSTrees {
     }
 
     public static void print(Edge E[]) {
+    
         System.out.print("E = [");
         for (int i = 0; i < E.length - 1; i++)
             System.out.print(E[i] + ", ");
         System.out.print(E[E.length - 1] + "]\n");
     }
     
-    public static void printALLMST(int minLen, int k, int kk, DisjointSet s, Edge[] E, int n, int m, Edge[] F) {
-        System.out.println("K =" + k + " kk = " + kk + " s.u= " + s);
-        if(k==n-1)print(F);
-        if((k==n-1) && getWeight(F)==minLen){
-         print(F);
-         return;
-     }
+    public static void printALLMST(int minLen, int k, int kk, DisjointSet s, Edge[] E, int n, int m, Edge []F) {
+        if ((k == n - 1) && getWeight(F) == minLen) {
+            print(F);
+            return;
+        }
 
         boolean flag = true;
 
         while (flag) {
             kk = kk + 1;
-            if (kk >= m) break;
+            if (kk >= m)
+                break;
 
             int currentWeight = E[kk].w;
 
@@ -141,10 +141,10 @@ public class PrintAllMSTrees {
                 if (r != t) {
                     flag = false;
                     DisjointSet ss = new DisjointSet(s);
-                    Edge[] FF = Arrays.copyOf(F, F.length);
                     ss.merge(r, t);
+                    Edge FF[] = Arrays.copyOf(F, F.length);
                     FF[k] = E[kk];
-                    printALLMST(minLen, k + 1, kk, ss, E, n, m, FF);
+                    printALLMST(minLen, k + 1, kk, ss, E, n, m,FF);
                 }
 
                 kk = kk + 1;
@@ -155,6 +155,8 @@ public class PrintAllMSTrees {
             }
         }
     }
+
+
 
     public static void main(String[] args) {
     Scanner in = new Scanner(System.in);
@@ -169,21 +171,11 @@ public class PrintAllMSTrees {
         print(E);
         int minLen= kruskal(E, n);
       DisjointSet s = new DisjointSet(n);
-        Edge F[] = new Edge[n - 1]; 
-        System.out.println("Total weight of Minimum Spanning Tree = " + minLen);
         Edge e = E[0];
-        int kk = 0;
-        while (e.w == E[kk].w) {
-            DisjointSet ss = new DisjointSet(s);
-            F[0] = E[kk];
-            int p = E[kk].s;
-            int q = E[kk].d;
-             int r = ss.find(p);
-             int t = ss.find(q);
-            ss.merge(r, t);
-            printALLMST(minLen, 0, kk, s, E, n, m, F);
-            kk++;
-        }
-
+        int kk = -1;
+        Edge[] F = new Edge[n - 1];
+        System.out.println("Minimum  Spanning Tree : ");
+        printALLMST(minLen, 0, kk, s, E, n,m, F);
+    System.out.println("-".repeat(30));
     }
 }
