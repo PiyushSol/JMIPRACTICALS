@@ -2,11 +2,36 @@ import java.util.Arrays;
 
 public class KNPString {
     public static void main(String[] args) {
-        String T = "abcab";
-        String P = "abab";
-        KMP_Match(T, P);
-        int[] pie = compute_Prefix2(P, 4);
+        String T = "aabaacaadaabaaba";
+        String P = "aaba";
+        // KMP_Match(T, P);
+        // int[] pie = compute_Prefix2(P, 4);
+        int n = P.length();
+        int pie[] = new int[n];
+        pie[0] = 0;
+        for (int i = 1; i < n; i++) {
+            pie[i] = getK(P, i);
+        }
         System.out.println(Arrays.toString(pie));
+    }
+
+    //Algorithm to calculate the Pie function 
+    public static int getK(String P, int i) {
+        int k = i - 1;
+        boolean found;
+        do{
+            found =true;
+            int l=i;
+            for(int j=k;j>=0;j--){
+                if(P.charAt(j)!=P.charAt(l)){
+                    found=false;
+                    break;
+                }
+                l--;
+            }
+            k--;
+        } while (found == false);
+        return k;
     }
 
     //Knuth Morris Pratt Matching Algorithm
@@ -17,14 +42,14 @@ public class KNPString {
         int q = 0;
         for (int i = 0; i < n; i++) {
             while (q > 0 && P.charAt(q ) != T.charAt(i)) {
-                q = pie[q];
+                q = pie[q-1];
             }
             if (P.charAt(q ) == T.charAt(i)) {
                 q = q + 1;
             }
-            if (q == m-1) {
-                System.out.println("Pattern occurs with shift : " + (i - m+1));
-                q = pie[q];
+            if (q == m) {
+                System.out.println("Pattern occurs with shift : " + (i-m+1));
+                q = pie[q-1];
             }
         }
     }
@@ -37,13 +62,14 @@ public class KNPString {
         int k = 0;
         for (int q = 1; q < m; q++) {
             while (k > 0 && p.charAt(k) != p.charAt(q)) {
-                k = pie[k];
+                k = pie[k - 1];
             }
             if (p.charAt(k) == p.charAt(q)) {
                 k = k + 1;
             }
             pie[q] = k;
         }
+        System.out.println(Arrays.toString(pie));
         return pie;
     }
 
@@ -74,7 +100,7 @@ public class KNPString {
         int k = 0;
         for (int q = 1; q < m; q++) {
             while (k > 0 && p.charAt(k) != p.charAt(q)) {
-                k = pie[k];
+                k = pie[k-1];
             }
             if (p.charAt(k) == p.charAt(q)) {
                 k = k + 1;
